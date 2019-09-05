@@ -7,6 +7,7 @@ import OutputAuthor from "../presentational/OutputAuthor.jsx";
 import OutputText from "../presentational/OutputText.jsx";
 import OutputRequest from "../presentational/OutputRequest.jsx";
 import OutputResponse from "../presentational/OutputResponse.jsx";
+import PictureContainer from "./PictureContainer.jsx";
 
 class ReadDocumentContainer extends Component {
 
@@ -32,6 +33,8 @@ class ReadDocumentContainer extends Component {
 
   handleClick(event) {
     this.setState({ response: 'Waiting...' })
+
+    PictureContainer.activateFlow('flow-read');
 
     var request = {
         method: 'GET',
@@ -61,7 +64,8 @@ class ReadDocumentContainer extends Component {
   render() {
     const { id, author, text, request, response } = this.state;
     return (
-      <div className="action-container">
+      <div className="view-container">
+        <p className="view-title">Read document</p>
         <InputId
           id="read-document-id"
           value={id}

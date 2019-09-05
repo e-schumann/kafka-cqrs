@@ -7,6 +7,7 @@ import InputText from "../presentational/InputText.jsx";
 import InputButton from "../presentational/InputButton.jsx";
 import OutputRequest from "../presentational/OutputRequest.jsx";
 import OutputResponse from "../presentational/OutputResponse.jsx";
+import PictureContainer from "./PictureContainer.jsx";
 
 class UpdateDocumentContainer extends Component {
 
@@ -43,6 +44,8 @@ class UpdateDocumentContainer extends Component {
   handleClick(event) {
     this.setState({ response: 'Waiting...' })
 
+    PictureContainer.activateFlow('flow-update');
+
     var request = {
         method: 'PUT',
         url: window.location.href + 'producer/documents',
@@ -76,7 +79,8 @@ class UpdateDocumentContainer extends Component {
   render() {
     const { id, author, text, request, response } = this.state;
     return (
-      <div className="action-container">
+      <div className="view-container">
+        <p className="view-title">Update document</p>
         <InputId
           id="update-document-id"
           value={id}

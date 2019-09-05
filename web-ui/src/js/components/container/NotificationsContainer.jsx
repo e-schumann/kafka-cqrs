@@ -22,12 +22,16 @@ class NotificationsContainer extends Component {
     this.setState({
         notifications: this.state.notifications
     });
+
+    var textArea = document.getElementsByClassName('output-notifications-control')[0];
+    textArea.scrollTop = textArea.scrollHeight;
   }
 
   render() {
     const { notifications } = this.state;
     return (
-      <div className="action-container">
+      <div className="view-container">
+        <p className="view-title">SSE Push Notifications</p>
         <OutputNotifications
           id="notifications-id"
           value={notifications}

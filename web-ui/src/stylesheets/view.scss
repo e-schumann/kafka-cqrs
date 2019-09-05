@@ -1,0 +1,16 @@
+.view-title {
+    color: black;
+    font-weight: bold;
+}
+
+.view-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-row-gap: 5px;
+
+    border: 1px solid;
+    border-color: gray;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 5px 5px 10px 0px #888888;
+}

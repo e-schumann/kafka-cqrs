@@ -1,5 +1,10 @@
 Event Sourcing CQRS Microservices application with SSE Web Push Notifications on top of Kubernetes with Kafka and Cassandra
 
+# Environment Schema
+
+Once demo up and running, shows data flow between microservices and traffic details (CRUD + Push Notifications).
+
+![Image of Demo](doc/demo.png)
 
 # Prerequisites
 - JDK 11
@@ -11,7 +16,9 @@ Event Sourcing CQRS Microservices application with SSE Web Push Notifications on
 
 
 # TODOs
-- Web UI component
+- Turn demo Web-UI into service
+- Make sure minikube.local not hardcoded for demo
+- Make sure minikube.local not in /etc/hosts
 - EKS deployment
 - Upgrade Cassandra to version supporting Java 11
 - Upgrade other elements so that no Java 11 TODOs left
@@ -46,13 +53,13 @@ Event Sourcing CQRS Microservices application with SSE Web Push Notifications on
 
   `$ minikube start`
 
-- If the following minikube issues are not fixed and you use iptables proxy (default):
+- Unless the following minikube issues are fixed and you use iptables proxy (default):
 
   - https://github.com/kubernetes/kubernetes/issues/20475
 
   - https://github.com/cloudfoundry-incubator/kubo-release/issues/212
 
-  This needs to be executed as workaround (minikube console):
+  This needs to be executed as a workaround (minikube console):
 
   `$ minikube ssh`
   
@@ -93,6 +100,15 @@ Event Sourcing CQRS Microservices application with SSE Web Push Notifications on
   `$ kubectl -f e2e-tests/kubernetes/app apply`
 
   - Wait a bit until components started...
+
+
+## Run Demo
+
+  `$ cd web-ui`
+  
+  `$ npm start`
+  
+  Should take us to http://localhost:8080/
 
 
 ## E2E Tests
